@@ -23,7 +23,7 @@
     <p><strong>Account Number:</strong> {{ profile.bank_account_number }}</p>
 
     <h3>Transaction History</h3>
-
+<div class="table-wrapper">
     <table border="1" width="100%" cellpadding="8">
         <tr>
             <th>Amount</th>
@@ -39,6 +39,7 @@
         </tr>
         {% endfor %}
     </table>
+</div>
 
     <p><strong>Total Transactions:</strong> {{ total_transactions }}</p>
 

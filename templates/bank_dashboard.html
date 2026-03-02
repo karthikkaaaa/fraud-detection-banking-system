@@ -1,39 +1,10 @@
 {% extends "bank_base.html" %}
 
 {% block content %}
+<div class="container">
 
 <h2>Bank Fraud Monitoring Dashboard</h2>
-{% comment %} <div class="card">
-    <h3>🔔 New Customer Complaints ({{ complaints|length }})</h3>
 
-    {% if complaints %}
-        <table width="100%" cellpadding="8" style="border-collapse: collapse;">
-            <tr style="background:#fdebd0;">
-                <th>User</th>
-                <th>Phone</th>
-                <th>Is Transaction Yours?</th>
-                <th>Problem</th>
-                <th>Status</th>
-            </tr>
-
-            {% for c in complaints %}
-            <tr style="border-bottom:1px solid #ddd;">
-                <td>{{ c.user.username }}</td>
-                <td>{{ c.phone }}</td>
-                <td>{{ c.is_you }}</td>
-                <td>{{ c.problem }}</td>
-                <td>
-                    <span style="color:red; font-weight:bold;">
-                        {{ c.status }}
-                    </span>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <p>No new complaints.</p>
-    {% endif %}
-</div> {% endcomment %}
 <div class="card">
     <h3>
         🔔 Help Messages ({{ complaints|length }})
@@ -52,6 +23,7 @@
 </div>
 
 <div class="card">
+    <div class="table-wrapper">
     <table width="100%" cellpadding="10" style="border-collapse: collapse;">
         <tr style="background:#ecf0f1;">
             <th>User</th>
@@ -93,6 +65,8 @@
         </tr>
         {% endfor %}
     </table>
+    </div>
+</div>
 </div>
 
 {% endblock %}

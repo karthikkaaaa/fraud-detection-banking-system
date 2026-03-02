@@ -98,6 +98,93 @@
         padding: 20px;
     }
 }
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 92%;
+        max-width: 420px;   /* 👈 Important */
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+}
+@media (max-width: 768px) {
+
+    .card {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+}
+container dashboard-grid
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Make table text smaller on mobile */
+@media (max-width: 768px) {
+
+    h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 12px;
+    }
+}
+
+/* Make dashboard cards stack nicely */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+.card {
+    padding: 18px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+}
     </style>
 </head>
 <body>
