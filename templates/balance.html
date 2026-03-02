@@ -1,0 +1,15 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>💰 Your Current Balance</h2>
+    <hr>
+
+    <h3>₹{{ balance }}</h3>
+
+    <br>
+    <a href="{% url 'user_dashboard' %}">⬅ Back to Dashboard</a>
+
+</div>
+{% endblock %}

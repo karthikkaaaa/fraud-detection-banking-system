@@ -1,0 +1,98 @@
+{% extends "bank_base.html" %}
+
+{% block content %}
+
+<h2>Bank Fraud Monitoring Dashboard</h2>
+{% comment %} <div class="card">
+    <h3>🔔 New Customer Complaints ({{ complaints|length }})</h3>
+
+    {% if complaints %}
+        <table width="100%" cellpadding="8" style="border-collapse: collapse;">
+            <tr style="background:#fdebd0;">
+                <th>User</th>
+                <th>Phone</th>
+                <th>Is Transaction Yours?</th>
+                <th>Problem</th>
+                <th>Status</th>
+            </tr>
+
+            {% for c in complaints %}
+            <tr style="border-bottom:1px solid #ddd;">
+                <td>{{ c.user.username }}</td>
+                <td>{{ c.phone }}</td>
+                <td>{{ c.is_you }}</td>
+                <td>{{ c.problem }}</td>
+                <td>
+                    <span style="color:red; font-weight:bold;">
+                        {{ c.status }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No new complaints.</p>
+    {% endif %}
+</div> {% endcomment %}
+<div class="card">
+    <h3>
+        🔔 Help Messages ({{ complaints|length }})
+    </h3>
+
+    <a href="{% url 'bank_complaints' %}">
+        View All Messages
+    </a>
+</div>
+<h2>Today's Transactions</h2>
+
+
+
+<div class="card">
+    <h3>Total Transactions: {{ transactions|length }}</h3>
+</div>
+
+<div class="card">
+    <table width="100%" cellpadding="10" style="border-collapse: collapse;">
+        <tr style="background:#ecf0f1;">
+            <th>User</th>
+            <th>Amount</th>
+            <th>Location</th>
+            <th>Risk Score</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for t in transactions %}
+        <tr style="border-bottom:1px solid #ddd;">
+            <td>
+                <a href="{% url 'customer_detail' t.user.id %}">
+                    {{ t.user.username }}
+                </a>
+            </td>
+
+            <td>₹{{ t.amount }}</td>
+            <td>{{ t.location }}</td>
+            <td>{{ t.risk_score }}</td>
+
+            <td>
+                {% if t.status == "Approved" %}
+                    <span style="color:green; font-weight:bold;">Approved</span>
+                {% elif t.status == "Declined" %}
+                    <span style="color:red; font-weight:bold;">Declined</span>
+                {% elif t.status == "Flagged" %}
+                    <span style="color:orange; font-weight:bold;">Flagged</span>
+                {% else %}
+                    {{ t.status }}
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="{% url 'update_status' t.id 'Approved' %}" style="color:green;">Approve</a> |
+                <a href="{% url 'update_status' t.id 'Declined' %}" style="color:red;">Decline</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

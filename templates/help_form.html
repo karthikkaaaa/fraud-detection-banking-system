@@ -1,0 +1,40 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>🆘 Contact Bank - Help Form</h2>
+    <hr>
+
+    {% for message in messages %}
+        <p style="color:red;">{{ message }}</p>
+    {% endfor %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Phone Number:</label>
+        <input type="text" name="phone" maxlength="10" required>
+
+        <label>Is this transaction yours?</label>
+        <select name="is_you" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+<div class="form-group">
+    <label>Describe Your Problem:</label>
+    <textarea name="problem" class="textarea-box" required></textarea>
+</div>
+        <label>Enter Password to Verify:</label>
+        <input type="password" name="confirm_password" required>
+
+        <button type="submit">Submit Request</button>
+    </form>
+
+    <br>
+    <a href="{% url 'user_dashboard' %}">⬅ Back</a>
+
+</div>
+{% endblock %}

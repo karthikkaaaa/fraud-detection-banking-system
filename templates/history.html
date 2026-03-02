@@ -1,0 +1,19 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Your Transactions</h2>
+
+    {% for t in transactions %}
+        <p>
+            ₹{{ t.amount }} |
+            {{ t.location }} |
+            {{ t.status }}
+        </p>
+    {% empty %}
+        <p>No transactions yet.</p>
+    {% endfor %}
+
+    <a href="/make-transaction/">Back</a>
+</div>
+{% endblock %}

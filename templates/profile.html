@@ -1,0 +1,22 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>👤 My Profile</h2>
+    <hr>
+
+    <p><strong>Username:</strong> {{ request.user.username }}</p>
+    <p><strong>Email:</strong> {{ request.user.email }}</p>
+    <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+    <p><strong>District:</strong> {{ profile.home_location }}</p>
+    <p><strong>Address:</strong> {{ profile.address }}</p>
+    <p><strong>Bank Account:</strong> {{ profile.bank_account_number }}</p>
+    <p><strong>UPI ID:</strong> {{ profile.upi_id }}</p>
+    <p><strong>Balance:</strong> ₹{{ profile.balance }}</p>
+
+    <br>
+    <a href="{% url 'user_dashboard' %}">⬅ Back to Dashboard</a>
+
+</div>
+{% endblock %}

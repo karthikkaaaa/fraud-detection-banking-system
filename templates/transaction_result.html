@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Result</title>
+</head>
+<body style="text-align:center; margin-top:100px; font-family:Arial;">
+
+    {% if status == "Approved" %}
+        <h1 style="color:green;">✅ Transaction Successful</h1>
+    {% else %}
+        <h1 style="color:red;">❌ Transaction Flagged</h1>
+        <p>Waiting for Bank Approval</p>
+    {% endif %}
+
+    <p>Risk Score: {{ risk }}</p>
+  <form action="/make-transaction/" method="get">
+    <button type="submit" style="
+        background-color: #34495e;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 3px;
+        cursor: pointer;
+    ">
+        Make Another Payment
+    </button>
+</form>
+</body>
+</html>

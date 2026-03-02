@@ -1,0 +1,50 @@
+{% comment %} {% extends "bank_base.html" %}
+
+{% block content %}
+<div class="container">
+
+<h2>Help Message from {{ complaint.user.username }}</h2>
+<hr>
+
+<p><strong>Phone:</strong> {{ complaint.phone }}</p>
+<p><strong>Is Transaction Yours?:</strong> {{ complaint.is_you }}</p>
+<p><strong>Problem:</strong></p>
+<p>{{ complaint.problem }}</p>
+<p><strong>Date:</strong> {{ complaint.created_at }}</p>
+
+<br>
+
+<a href="{% url 'customer_detail' complaint.user.id %}">
+    🔎 View Customer Details
+</a>
+
+</div>
+{% endblock %} {% endcomment %}
+{% extends "bank_base.html" %}
+
+{% block content %}
+
+<h2>📨 Help Message</h2>
+<hr>
+
+<p>
+    <strong>User:</strong>
+    <a href="{% url 'customer_detail' complaint.user.id %}">
+        {{ complaint.user.username }}
+    </a>
+</p>
+
+<p><strong>Phone:</strong> {{ complaint.phone }}</p>
+<p><strong>Is Transaction Yours?:</strong> {{ complaint.is_you }}</p>
+<p><strong>Date:</strong> {{ complaint.created_at }}</p>
+
+<hr>
+
+<p><strong>Complaint:</strong></p>
+<p>{{ complaint.problem }}</p>
+
+<br>
+
+<a href="{% url 'bank_complaints' %}">⬅ Back to Messages</a>
+
+{% endblock %}

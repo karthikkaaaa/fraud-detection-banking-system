@@ -1,0 +1,46 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container" style="width: 800px;">
+
+    <h2>Customer Details</h2>
+
+    <h3>Basic Info</h3>
+<h3>Customer Information</h3>
+
+<p><strong>Username:</strong> {{ customer.username }}</p>
+<p><strong>Email:</strong> {{ customer.email }}</p>
+<p><strong>Phone:</strong> {{ profile.phone_number }}</p>
+<p><strong>Address:</strong> {{ profile.address }}</p>
+<p><strong>Bank Account:</strong> {{ profile.bank_account_number }}</p>
+<p><strong>UPI ID:</strong> {{ profile.upi_id }}</p>
+<p><strong>Balance:</strong> ₹{{ profile.balance }}</p>
+
+    <h3>Bank Details</h3>
+    <p><strong>Balance:</strong> ₹{{ profile.balance }}</p>
+    <p><strong>Address:</strong> {{ profile.address }}</p>
+    <p><strong>Phone:</strong> {{ profile.phone_number }}</p>
+    <p><strong>Account Number:</strong> {{ profile.bank_account_number }}</p>
+
+    <h3>Transaction History</h3>
+
+    <table border="1" width="100%" cellpadding="8">
+        <tr>
+            <th>Amount</th>
+            <th>Location</th>
+            <th>Status</th>
+        </tr>
+
+        {% for t in transactions %}
+        <tr>
+            <td>₹{{ t.amount }}</td>
+            <td>{{ t.location }}</td>
+            <td>{{ t.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><strong>Total Transactions:</strong> {{ total_transactions }}</p>
+
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "bank_base.html" %}
+{% block content %}
+
+<h2>Staff Members</h2>
+
+{% for s in staff %}
+<div class="card">
+    {{ s.username }} - {{ s.email }}
+</div>
+{% endfor %}
+
+{% endblock %}

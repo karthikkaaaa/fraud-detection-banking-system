@@ -1,0 +1,16 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>✅ Request Submitted</h2>
+    <hr>
+
+    <p>Your request has been sent to the bank.</p>
+    <p>The bank will contact you after verifying the flagged transaction.</p>
+
+    <br>
+    <a href="{% url 'user_dashboard' %}">⬅ Back to Dashboard</a>
+
+</div>
+{% endblock %}

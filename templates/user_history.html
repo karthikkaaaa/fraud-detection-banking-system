@@ -1,0 +1,12 @@
+{% extends "base_main.html" %}
+{% block content %}
+
+<h2>Your Transactions</h2>
+
+{% for t in transactions %}
+<div class="card">
+    ₹{{ t.amount }} - {{ t.status }} - {{ t.created_at }}
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "bank_base.html" %}
+{% block content %}
+
+<h2>Transaction History</h2>
+
+{% for t in transactions %}
+<div class="card">
+    {{ t.user.username }} | ₹{{ t.amount }} | {{ t.status }}
+</div>
+{% endfor %}
+
+{% endblock %}

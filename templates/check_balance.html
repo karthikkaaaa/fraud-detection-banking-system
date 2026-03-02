@@ -1,0 +1,22 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>💰 Check Bank Balance</h2>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Enter Your Password:</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Check Balance</button>
+    </form>
+
+    <br>
+    <a href="{% url 'user_dashboard' %}">⬅ Back to Dashboard</a>
+
+</div>
+{% endblock %}

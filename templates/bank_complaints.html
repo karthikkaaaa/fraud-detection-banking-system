@@ -1,0 +1,24 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>🔔 Customer Complaints</h2>
+    <hr>
+
+    {% for complaint in complaints %}
+        <div class="card">
+            <strong>User:</strong> {{ complaint.user.username }} <br>
+            <strong>Phone:</strong> {{ complaint.phone }} <br>
+            <strong>Is Transaction Yours?:</strong> {{ complaint.is_you }} <br>
+            <strong>Problem:</strong> {{ complaint.problem }} <br>
+            <strong>Status:</strong> {{ complaint.status }} <br>
+            <strong>Date:</strong> {{ complaint.created_at }}
+        </div>
+        <br>
+    {% empty %}
+        <p>No complaints found.</p>
+    {% endfor %}
+
+</div>
+{% endblock %}

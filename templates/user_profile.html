@@ -1,0 +1,12 @@
+{% extends "base_main.html" %}
+{% block content %}
+
+<h2>My Details</h2>
+
+<p><strong>Username:</strong> {{ profile.user.username }}</p>
+<p><strong>Email:</strong> {{ profile.user.email }}</p>
+<p><strong>Address:</strong> {{ profile.address }}</p>
+<p><strong>Account Number:</strong> {{ profile.account_number }}</p>
+<p><strong>UPI ID:</strong> {{ profile.upi_id }}</p>
+
+{% endblock %}

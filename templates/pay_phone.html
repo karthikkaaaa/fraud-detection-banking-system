@@ -1,0 +1,21 @@
+{% extends "base_main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>📱 Pay Phone Number</h2>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Enter 10 Digit Phone Number:</label>
+        <input type="text" name="phone" maxlength="10" required>
+
+        <button type="submit">Proceed</button>
+    </form>
+
+    <br>
+    <a href="{% url 'user_dashboard' %}">⬅ Back</a>
+
+</div>
+{% endblock %}
