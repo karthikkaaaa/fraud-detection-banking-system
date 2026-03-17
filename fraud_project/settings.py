@@ -132,3 +132,4 @@ BANK_EMAIL = 'karthikakunnummal123@gmail.com'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/user-dashboard/'
 LOGOUT_REDIRECT_URL = '/login/'
+ALLOWED_HOSTS = ['.railway.app']
