@@ -5,11 +5,11 @@ urlpatterns = [
     path('', views.register_view, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-
-    path("dashboard/", views.user_dashboard, name="user_dashboard"),
-    path("history/", views.user_history, name="history"),
-    path("check-balance/", views.check_balance, name="check_balance"),
+    path('user-dashboard/', views.user_dashboard, name='user-dashboard'),
+    
+    path('history/', views.user_history, name='history'),
     path("profile/", views.user_profile, name="profile"),
+    path('check-balance/', views.check_balance, name='check_balance'),
     path("pay-phone/", views.pay_phone, name="pay_phone"),
     path("help/", views.help_request, name="help_request"),
 

@@ -60,7 +60,7 @@ def login_view(request):
 
         if user:
             login(request, user)
-            return redirect("user_dashboard")
+            return redirect("user-dashboard")
         else:
             messages.error(request, "Invalid username or password")
 
@@ -339,7 +339,7 @@ def bank_history(request):
 
 @login_required
 def user_dashboard(request):
-    profile = CustomerProfile.objects.get(user=request.user)
+    profile, created = CustomerProfile.objects.get_or_create(user=request.user)
     return render(request, "dashboard.html", {"profile": profile})
 
 
@@ -355,6 +355,7 @@ def check_balance(request):
             return render(request, "balance.html", {"balance": profile.balance})
         else:
             messages.error(request, "Incorrect Password")
+            return redirect("user-dashboard")
 
     return render(request, "check_balance.html")
 
