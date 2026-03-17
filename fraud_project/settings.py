@@ -133,3 +133,16 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/user-dashboard/'
 LOGOUT_REDIRECT_URL = '/login/'
 ALLOWED_HOSTS = ['.railway.app']
+import os
+
+ALLOWED_HOSTS = ['*']
+
+PORT = os.environ.get('PORT')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+DEBUG = False
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
